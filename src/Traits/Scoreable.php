@@ -1,7 +1,6 @@
 <?php
 
-namespace Binafy\Traits;
-
+namespace Binafy\LaravelScore\Traits;
 
 trait Scoreable
 {
@@ -11,7 +10,7 @@ trait Scoreable
     public function scores(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->morphMany(
-            config('laravel-score.model', Binafy\LaravelScore\Models\Score::class),
+            config('laravel-score.model', \Binafy\LaravelScore\Models\Score::class),
             'scoreable'
         );
     }

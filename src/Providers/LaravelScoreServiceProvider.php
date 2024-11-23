@@ -1,6 +1,6 @@
 <?php
 
-namespace Binafy\LaravelScore;
+namespace Binafy\LaravelScore\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

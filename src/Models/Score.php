@@ -1,6 +1,6 @@
 <?php
 
-namespace Binafy\Models;
+namespace Binafy\LaravelScore\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
