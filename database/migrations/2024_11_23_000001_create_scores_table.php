@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('score', function (Blueprint $table) {
+        $tableName = config('laravel-score.table', 'scores');
+
+        Schema::create($tableName, function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
@@ -27,6 +29,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('score');
+        $tableName = config('laravel-score.table', 'scores');
+
+        Schema::dropIfExists($tableName);
     }
 };
