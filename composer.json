@@ -1,0 +1,19 @@
+{
+    "name": "binafy/laravel-score",
+    "description": "Give score to all things",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Binafy\\LaravelScore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Milwad",
+            "email": "milwad.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
