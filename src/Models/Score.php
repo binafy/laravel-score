@@ -3,7 +3,6 @@
 namespace Binafy\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
 
 class Score extends Model
 {
@@ -21,6 +20,16 @@ class Score extends Model
      */
     protected $with = ['scoreable'];
 
+    /**
+     * Create a new instance of the model.
+     */
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->table = config('laravel-score.table', 'scores');
+    }
+
     // Relations
 
     /**
@@ -28,7 +37,10 @@ class Score extends Model
      */
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(
+            config('laravel-score.user.model', 'App\Models\User'),
+            config('laravel-score.user.foreign_key', 'user_id')
+        );
     }
 
     /**
