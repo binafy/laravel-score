@@ -2,8 +2,12 @@
 
 namespace Tests\SetUp\Models;
 
+use Binafy\LaravelScore\Traits\InteractWithScore;
+
 class User extends \Illuminate\Foundation\Auth\User
 {
+    use InteractWithScore;
+
     /**
      * Set fillable for columns.
      *
