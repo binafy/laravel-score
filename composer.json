@@ -9,6 +9,11 @@
             "Binafy\\LaravelScore\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Milwad",
