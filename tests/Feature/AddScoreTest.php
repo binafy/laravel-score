@@ -7,11 +7,6 @@ use Tests\SetUp\Models\User;
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
 
-/*
- * Use `RefreshDatabase` for delete migration data for each tests.
- */
-uses(RefreshDatabase::class);
-
 test('user can give score to scoreable with user id', function () {
     $user = User::query()->create([
         'name' => 'milwad',
