@@ -9,7 +9,7 @@ return [
     /*
      * The model namespace.
      */
-    'model' => \Binafy\Models\Score::class,
+    'model' => \Binafy\LaravelScore\Models\Score::class,
 
     /*
     * User properties.
