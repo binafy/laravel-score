@@ -17,12 +17,19 @@ trait Scoreable
         );
     }
 
-
     /**
      * Get positive score relation.
      */
     public function positiveScores(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->scores()->where('score', 1);
+    }
+
+    /**
+     * Get negative score relation.
+     */
+    public function negativeScores(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        return $this->scores()->where('score', -1);
     }
 }
