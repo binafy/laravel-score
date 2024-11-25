@@ -8,11 +8,7 @@ use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
 
 test('user can give score to scoreable with user id', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
+    $user = createUser();
     $photo = Photo::query()->create(['name' => fake()->name]);
 
     $user->addScore($photo, userId: $user->id);
@@ -32,11 +28,7 @@ test('user can give score to scoreable with user id', function () {
 });
 
 test('user can give score to scoreable with logged user', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
+    $user = createUser();
     auth()->login($user);
 
     $photo = Photo::query()->create(['name' => fake()->name]);
@@ -58,11 +50,7 @@ test('user can give score to scoreable with logged user', function () {
 });
 
 test('user can give negative score to scoreable with logged user', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
+    $user = createUser();
     auth()->login($user);
 
     $photo = Photo::query()->create(['name' => fake()->name]);

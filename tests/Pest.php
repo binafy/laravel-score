@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\SetUp\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,12 @@ uses(Tests\TestCase::class, RefreshDatabase::class)->in('Feature');
 expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
+
+function createUser()
+{
+    return User::query()->create([
+        'name' => 'milwad',
+        'email' => 'milwad@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+}

@@ -2,6 +2,8 @@
 
 namespace Binafy\LaravelScore\Traits;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 trait Scoreable
 {
     /**
@@ -13,5 +15,14 @@ trait Scoreable
             config('laravel-score.model', \Binafy\LaravelScore\Models\Score::class),
             'scoreable'
         );
+    }
+
+
+    /**
+     * Get positive score relation.
+     */
+    public function positiveScores(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        return $this->scores()->where('score', 1);
     }
 }

@@ -45,17 +45,4 @@ trait InteractWithScore
             'score' => -1,
         ]);
     }
-
-    /**
-     * Get positive score count attribute.
-     */
-    public function positiveScoreCountAttribute(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this
-                ->scores()
-                ->where('score', 1)
-                ->count(),
-        );
-    }
 }
