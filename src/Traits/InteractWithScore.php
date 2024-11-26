@@ -3,7 +3,6 @@
 namespace Binafy\LaravelScore\Traits;
 
 use Binafy\LaravelScore\Models\Score;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 trait InteractWithScore
@@ -11,11 +10,11 @@ trait InteractWithScore
     /**
      * Relation one-to-many, Score model.
      */
-    public function scores(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function scorings(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(
-            config('laravel-score.model'),
-            config('laravel-score.user.foreign_key'),
+            config('laravel-score.model', \Binafy\LaravelScore\Models\Score::class),
+            config('laravel-score.user_foreign_key', 'user_id'),
             $this->getKeyName()
         );
     }
@@ -27,7 +26,7 @@ trait InteractWithScore
     {
         return Score::query()->create([
             'scoreable_id' => $scoreable->getKey(),
-            'scoreable_type' => $scoreable::class,
+            'scoreable_type' => $scoreable->getMorphClass(),
             'user_id' => $userId ?? auth()->id(),
             'score' => $score,
         ]);
@@ -40,7 +39,7 @@ trait InteractWithScore
     {
         return Score::query()->create([
             'scoreable_id' => $scoreable->getKey(),
-            'scoreable_type' => $scoreable::class,
+            'scoreable_type' => $scoreable->getMorphClass(),
             'user_id' => $userId ?? auth()->id(),
             'score' => -1,
         ]);

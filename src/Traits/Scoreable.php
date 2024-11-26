@@ -18,6 +18,17 @@ trait Scoreable
     }
 
     /**
+     *
+     */
+    public function scoreable(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(
+            config('laravel-score.model', \Binafy\LaravelScore\Models\Score::class),
+            'scoreable_id',
+        )->where('scoreable_type', $this->getMorphClass());
+    }
+
+    /**
      * Get positive score relation.
      */
     public function positiveScores(): \Illuminate\Database\Eloquent\Relations\MorphMany
