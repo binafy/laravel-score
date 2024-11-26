@@ -49,3 +49,53 @@ php artisan vendor:publish --provider="Binafy\LaravelScore\Providers\LaravelScor
 
 After publishing, run the `php artisan migrate` command.
 
+## Usage
+
+First of all, you need to use two traits:
+
+```php
+use Binafy\LaravelScore\Traits\InteractWithScore;
+use \Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    use InteractWithScore;
+}
+```
+
+And your model that want to give score to it:
+
+```php
+use Binafy\LaravelScore\Traits\Scoreable;
+use Illuminate\Database\Eloquent\Model;
+
+class Photo extends Model
+{
+    use Scoreable;
+}
+```
+
+### Add Score
+
+For giving a score to scoreable, you can use `addScore()` method:
+
+```php
+$user->addScore(
+    Model $scoreable,
+    int $score = 1,
+    int|null $userId = null
+);
+```
+
+### Add Negative Score
+
+If you want to add negative score to scoreable, you can use `addNegativeScore()` method:
+
+```php
+$user->addNegativeScore(
+    Model $scoreable,
+    int|null $userId = null
+);
+```
+
+
