@@ -98,4 +98,38 @@ $user->addNegativeScore(
 );
 ```
 
+<a name="contributors"></a>
+## Contributors
 
+Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-score/graphs/contributors).
+
+<a href="https://github.com/binafy/laravel-score/graphs/contributors"><img src="https://opencollective.com/laravel-score/contributors.svg?width=890&button=false" /></a>
+
+<a name="security"></a>
+## Security
+
+If you discover any security-related issues, please email `binafy23@gmail.com` instead of using the issue tracker.
+
+<a name="chanelog"></a>
+## Changelog
+
+The changelog can be found in the `CHANGELOG.md` file of the GitHub repository. It lists the changes, bug fixes, and improvements made to each version of the Laravel User Monitoring package.
+
+<a name="license"></a>
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/binafy/laravel-score/blob/1.x/LICENSE) for more information.
+
+<a name="start-history"></a>
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=binafy/laravel-score&type=Date)](https://star-history.com/#binafy/laravel-score&Date)
+
+<a name="donate"></a>
+## Donate
+
+If this package is helpful for you, you can buy a coffee for me :) ❤️
+
+- Iranian Gateway: https://daramet.com/milwad_khosravi
+- Paypal Gateway: SOON
+- MetaMask Address: `0xf208a562c5a93DEf8450b656c3dbc1d0a53BDE58`
