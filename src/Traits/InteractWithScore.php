@@ -23,7 +23,7 @@ trait InteractWithScore
     /**
      * Create score.
      */
-    public function addScore(Model $scoreable, $score = 1, int|null $userId = null)
+    public function addScore(Model $scoreable, int $score = 1, int|null $userId = null)
     {
         return Score::query()->create([
             'scoreable_id' => $scoreable->getKey(),
