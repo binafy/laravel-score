@@ -1,9 +1,19 @@
 {
     "name": "binafy/laravel-score",
-    "description": "Give score to all things",
+    "description": "Laravel Score is a lightweight and flexible package for adding scoring functionality to any Eloquent model in a Laravel application",
+    "keywords": [
+        "php",
+        "laravel",
+        "binafy",
+        "milwad",
+        "laravel-score",
+        "laravel-scoreable",
+        "laravel-library",
+        "laravel-package"
+    ],
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Binafy\\LaravelScore\\": "src/"
@@ -16,8 +26,15 @@
     },
     "authors": [
         {
-            "name": "Milwad",
-            "email": "milwad.dev@gmail.com"
+            "name": "Milwad Khosravi",
+            "email": "milwad.dev@gmail.com",
+            "role": "author",
+            "homepage": "https://github.com/milwad-dev"
+        },
+        {
+            "name": "Binafy",
+            "role": "owner",
+            "homepage": "https://github.com/binafy"
         }
     ],
     "require": {
@@ -33,6 +50,10 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html ./coverage"
     },
     "extra": {
         "laravel": {
