@@ -7,6 +7,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/binafy/laravel-score.svg?style=flat-square)](https://packagist.org/packages/binafy/laravel-score)
 [![License](https://img.shields.io/packagist/l/binafy/laravel-score)](https://packagist.org/packages/binafy/laravel-score)
 [![Passed Tests](https://github.com/binafy/laravel-score/actions/workflows/tests.yml/badge.svg)](https://github.com/binafy/laravel-score/actions/workflows/tests.yml)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/binafy/laravel-score)
 
 ## Introduction
 
