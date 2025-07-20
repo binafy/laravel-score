@@ -3,7 +3,6 @@
 namespace Binafy\LaravelScore\Traits;
 
 use Binafy\LaravelScore\Models\Score;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait Scoreable
 {
