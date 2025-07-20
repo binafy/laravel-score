@@ -44,4 +44,16 @@ trait InteractWithScore
             'score' => -1,
         ]);
     }
+
+    /**
+     * Check if the given user has already submitted a score for the specified model.
+     */
+    public function hasScored(Model $scoreable, int|null $userId = null): bool
+    {
+        return Score::query()->firstWhere([
+            'scoreable_id' => $scoreable->getKey(),
+            'scoreable_type' => $scoreable->getMorphClass(),
+            'user_id' => $userId ?? auth()->id(),
+        ]);
+    }
 }
