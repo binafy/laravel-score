@@ -11,7 +11,7 @@ test('user can give score to scoreable with user id', function () {
     $user = createUser();
     $photo = Photo::query()->create(['name' => fake()->name]);
 
-    $user->addScore($photo, userId: $user->id);
+    $user->addScore($photo, userId: $user->getKey());
 
     // DB Assertions
     assertDatabaseCount('scores', 1);
@@ -46,7 +46,9 @@ test('user can give score to scoreable with logged user', function () {
     expect($photo->scores->first())
         ->toBeInstanceOf(Score::class)
         ->and($photo->scores->first()->user->name)
-        ->toBe($user->name);
+        ->toBe($user->name)
+        ->and($user->scorings()->first())
+        ->toBeInstanceOf(Score::class);
 });
 
 test('user can give negative score to scoreable with logged user', function () {
@@ -69,4 +71,19 @@ test('user can give negative score to scoreable with logged user', function () {
         ->toBeInstanceOf(Score::class)
         ->and($photo->scores->first()->user->name)
         ->toBe($user->name);
+});
+
+test('user can check give score to scoreable', function () {
+    $user = createUser();
+
+    $photo = Photo::query()->create(['name' => fake()->name]);
+    $photo2 = Photo::query()->create(['name' => fake()->name]);
+
+    $user->addNegativeScore($photo, userId: $user->getKey());
+
+    // Assertions
+    expect($user->hasScored($photo, userId: $user->getKey()))
+        ->toBeTrue()
+        ->and($user->hasScored($photo2, userId: $user->getKey()))
+        ->toBeFalse();
 });

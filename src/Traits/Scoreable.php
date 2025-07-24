@@ -43,4 +43,16 @@ trait Scoreable
     {
         return $this->scores()->where('score', -1);
     }
+
+    /**
+     * Determined user give score before.
+     */
+    public function isScored(?int $userId = null): bool
+    {
+        if (is_null($userId)) {
+            $userId = auth()->id();
+        }
+
+        return $this->scores()->where('user_id', $userId)->exists();
+    }
 }

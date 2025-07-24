@@ -99,6 +99,21 @@ $user->addNegativeScore(
 );
 ```
 
+### Checking Scores
+
+If you want to check whether model has been scored to by specific user, you can use `isScored()` and `hasScored()` methods:
+
+```php
+$user->hasScored(
+    Model $scoreable,
+    int|null $userId = null
+): bool;
+
+$photo->isScored(
+    ?int $userId = null
+): bool;
+```
+
 <a name="contributors"></a>
 ## Contributors
 
