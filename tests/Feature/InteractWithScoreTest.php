@@ -11,7 +11,7 @@ test('user can give score to scoreable with user id', function () {
     $user = createUser();
     $photo = Photo::query()->create(['name' => fake()->name]);
 
-    $user->addScore($photo, userId: $user->id);
+    $user->addScore($photo, userId: $user->getKey());
 
     // DB Assertions
     assertDatabaseCount('scores', 1);
