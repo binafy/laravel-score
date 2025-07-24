@@ -57,7 +57,7 @@ trait Scoreable
     }
 
     /**
-     * Get scores count.
+     * Calculate the net count of scores.
      */
     public function getScoresCount(): int
     {
