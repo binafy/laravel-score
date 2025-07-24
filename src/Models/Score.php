@@ -50,4 +50,12 @@ class Score extends Model
     {
         return $this->morphTo();
     }
+
+    /**
+     * Check score is negative.
+     */
+    public function isNegative(): bool
+    {
+        return $this->score == -1;
+    }
 }
