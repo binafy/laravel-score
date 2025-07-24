@@ -50,10 +50,10 @@ trait InteractWithScore
      */
     public function hasScored(Model $scoreable, int|null $userId = null): bool
     {
-        return Score::query()->firstWhere([
+        return Score::query()->where([
             'scoreable_id' => $scoreable->getKey(),
             'scoreable_type' => $scoreable->getMorphClass(),
             'user_id' => $userId ?? auth()->id(),
-        ]);
+        ])->exists();
     }
 }
