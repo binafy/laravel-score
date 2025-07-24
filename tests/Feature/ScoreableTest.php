@@ -1,5 +1,6 @@
 <?php
 
+use Binafy\LaravelScore\Models\Score;
 use Tests\SetUp\Models\Photo;
 
 test('user can get positive score count', function () {
@@ -8,8 +9,10 @@ test('user can get positive score count', function () {
 
     $user->addScore($photo);
 
-    // Get positive score count attribute
-    expect($photo->positiveScores()->count())->toBe(1);
+    expect($photo->positiveScores()->count())
+        ->toBe(1)
+        ->and($photo->scoreable()->first())
+        ->toBeInstanceOf(Score::class);
 });
 
 test('user can get negative score count', function () {
