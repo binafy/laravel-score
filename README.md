@@ -52,8 +52,9 @@ After publishing, run the `php artisan migrate` command.
 
 ## Usage
 
-First of all, you need to use two traits:
+To enable scoring functionality, you need to use two traits:
 
+On the model giving the score (e.g. `User`):
 ```php
 use Binafy\LaravelScore\Traits\InteractWithScore;
 use \Illuminate\Database\Eloquent\Model;
@@ -64,7 +65,7 @@ class User extends Model
 }
 ```
 
-And your model that want to give score to it:
+On the model receiving the score (e.g. `Photo`):
 
 ```php
 use Binafy\LaravelScore\Traits\Scoreable;
@@ -78,7 +79,7 @@ class Photo extends Model
 
 ### Add Score
 
-For giving a score to scoreable, you can use `addScore()` method:
+To give a positive score to a scoreable model:
 
 ```php
 $user->addScore(
@@ -90,7 +91,7 @@ $user->addScore(
 
 ### Add Negative Score
 
-If you want to add negative score to scoreable, you can use `addNegativeScore()` method:
+To assign a negative score:
 
 ```php
 $user->addNegativeScore(
@@ -101,7 +102,7 @@ $user->addNegativeScore(
 
 ### Checking Scores
 
-If you want to check whether model has been scored to by specific user, you can use `isScored()` and `hasScored()` methods:
+You can check whether a model has already been scored by a specific user:
 
 ```php
 $user->hasScored(
@@ -116,7 +117,7 @@ $photo->isScored(
 
 ### Count Scores
 
-For get count of scores of one scoreable, you can use `getScoresCount()` method:
+To get the total number of scores for a model:
 
 ```php
 $photo->getScoresCount(): int;
@@ -124,10 +125,11 @@ $photo->getScoresCount(): int;
 
 ### Delete score
 
-For deleting a score, you may use `removeScore()` method:
+To remove an existing score:
 
 ```php
 $user->removeScore(Model $scoreable): bool;
+
 $photo->removeScore(?int $userId = null): bool;
 ```
 
