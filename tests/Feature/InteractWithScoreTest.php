@@ -97,5 +97,5 @@ test('user can delete score', function () {
     $user->removeScore($photo);
 
     // Assertions
-    \Pest\Laravel\assertDatabaseEmpty('scores');
+    \Pest\Laravel\assertDatabaseCount('scores', 0);
 });

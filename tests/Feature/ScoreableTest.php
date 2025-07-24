@@ -3,7 +3,7 @@
 use Binafy\LaravelScore\Models\Score;
 use Tests\SetUp\Models\Photo;
 use Tests\SetUp\Models\User;
-use function Pest\Laravel\assertDatabaseEmpty;
+use function Pest\Laravel\assertDatabaseCount;
 
 test('user can get positive score count', function () {
     $user = createUser();
@@ -88,7 +88,7 @@ test('user can delete score', function () {
     $user->addScore($photo, userId: $user->getKey());
     $photo->removeScore(userId: $user->getKey());
 
-    assertDatabaseEmpty('scores');
+    assertDatabaseCount('scores', 0);
 
     auth()->login($user);
     $photo = Photo::query()->create(['name' => fake()->name]);
@@ -96,5 +96,5 @@ test('user can delete score', function () {
     $user->addScore($photo);
     $photo->removeScore();
 
-    assertDatabaseEmpty('scores');
+    assertDatabaseCount('scores', 0);
 });
