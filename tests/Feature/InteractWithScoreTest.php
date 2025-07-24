@@ -70,3 +70,18 @@ test('user can give negative score to scoreable with logged user', function () {
         ->and($photo->scores->first()->user->name)
         ->toBe($user->name);
 });
+
+test('user can check give score to scoreable', function () {
+    $user = createUser();
+
+    $photo = Photo::query()->create(['name' => fake()->name]);
+    $photo2 = Photo::query()->create(['name' => fake()->name]);
+
+    $user->addNegativeScore($photo, userId: $user->getKey());
+
+    // Assertions
+    expect($user->hasScored($photo, userId: $user->getKey()))
+        ->toBeTrue()
+        ->and($user->hasScored($photo2, userId: $user->getKey()))
+        ->toBeFalse();
+});
