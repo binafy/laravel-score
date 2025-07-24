@@ -55,4 +55,25 @@ trait Scoreable
 
         return $this->scores()->where('user_id', $userId)->exists();
     }
+
+    /**
+     * Get scores count.
+     */
+    public function getScoresCount(): int
+    {
+        $count = 0;
+        $this->scores()->get()->each(function (Score $score) use (&$count) {
+            if ($score->isNegative()) {
+                $count--;
+            } else {
+                $count++;
+            }
+        });
+
+        if ($count < 0) {
+            return 0;
+        }
+
+        return $count;
+    }
 }
