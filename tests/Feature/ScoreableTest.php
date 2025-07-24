@@ -2,6 +2,7 @@
 
 use Binafy\LaravelScore\Models\Score;
 use Tests\SetUp\Models\Photo;
+use Tests\SetUp\Models\User;
 
 test('user can get positive score count', function () {
     $user = createUser();
@@ -35,4 +36,46 @@ test('user can check give score before', function () {
         ->toBeTrue()
         ->and($photo2->isScored())
         ->toBeFalse();
+});
+
+test('user can get negative scores count', function () {
+    $user = createUser();
+    $user2 = User::query()->create([
+        'name' => 'binafy',
+        'email' => 'binafy@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $user3 = User::query()->create([
+        'name' => 'taylor',
+        'email' => 'taylor@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $photo = Photo::query()->create(['name' => fake()->name]);
+
+    $user->addNegativeScore($photo);
+    $user2->addNegativeScore($photo);
+    $user3->addNegativeScore($photo);
+
+    expect($photo->getScoresCount())->toBe(0);
+});
+
+test('user can get positive scores count', function () {
+    $user = createUser();
+    $user2 = User::query()->create([
+        'name' => 'binafy',
+        'email' => 'binafy@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $user3 = User::query()->create([
+        'name' => 'taylor',
+        'email' => 'taylor@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $photo = Photo::query()->create(['name' => fake()->name]);
+
+    $user->addScore($photo);
+    $user2->addScore($photo);
+    $user3->addScore($photo);
+
+    expect($photo->getScoresCount())->toBe(3);
 });

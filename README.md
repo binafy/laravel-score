@@ -114,6 +114,14 @@ $photo->isScored(
 ): bool;
 ```
 
+### Count Scores
+
+For get count of scores of one scoreable, you can use `getScoresCount()` method:
+
+```php
+$photo->getScoresCount(): int;
+```
+
 <a name="contributors"></a>
 ## Contributors
 
