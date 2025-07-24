@@ -87,3 +87,15 @@ test('user can check give score to scoreable', function () {
         ->and($user->hasScored($photo2, userId: $user->getKey()))
         ->toBeFalse();
 });
+
+test('user can delete score', function () {
+    $user = createUser();
+
+    $photo = Photo::query()->create(['name' => fake()->name]);
+
+    $user->addNegativeScore($photo, userId: $user->getKey());
+    $user->removeScore($photo);
+
+    // Assertions
+    \Pest\Laravel\assertDatabaseCount('scores', 0);
+});

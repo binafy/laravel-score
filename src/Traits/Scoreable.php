@@ -76,4 +76,18 @@ trait Scoreable
 
         return $count;
     }
+
+    /**
+     * Removes the score record for the specified user.
+     */
+    public function removeScore(?int $userId = null): bool
+    {
+        if (is_null($userId)) {
+            $userId = auth()->id();
+        }
+
+        return $this->scores()
+            ->where('user_id', $userId)
+            ->delete();
+    }
 }

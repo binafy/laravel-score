@@ -122,6 +122,15 @@ For get count of scores of one scoreable, you can use `getScoresCount()` method:
 $photo->getScoresCount(): int;
 ```
 
+### Delete score
+
+For deleting a score, you may use `removeScore()` method:
+
+```php
+$user->removeScore(Model $scoreable): bool;
+$photo->removeScore(?int $userId = null): bool;
+```
+
 <a name="contributors"></a>
 ## Contributors
 
