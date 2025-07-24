@@ -56,4 +56,14 @@ trait InteractWithScore
             'user_id' => $userId ?? auth()->id(),
         ])->exists();
     }
+
+    /**
+     * Removes the score record associated with the given scoreable model.
+     */
+    public function removeScore(Model $scoreable): bool
+    {
+        return $this->scorings()
+            ->whereMorphedTo('scoreable', $scoreable)
+            ->delete();
+    }
 }
