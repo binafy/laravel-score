@@ -46,7 +46,9 @@ test('user can give score to scoreable with logged user', function () {
     expect($photo->scores->first())
         ->toBeInstanceOf(Score::class)
         ->and($photo->scores->first()->user->name)
-        ->toBe($user->name);
+        ->toBe($user->name)
+        ->and($user->scorings()->first())
+        ->toBeInstanceOf(Score::class);
 });
 
 test('user can give negative score to scoreable with logged user', function () {
