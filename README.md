@@ -166,5 +166,5 @@ The MIT License (MIT). Please see [License File](https://github.com/binafy/larav
 If this package is helpful for you, you can buy a coffee for me :) ❤️
 
 - Iranian Gateway: https://daramet.com/milwad_khosravi
-- Paypal Gateway: SOON
+- PayPal Gateway: SOON
 - MetaMask Address: `0xf208a562c5a93DEf8450b656c3dbc1d0a53BDE58`
