@@ -55,7 +55,7 @@
         },
         "audit": {
             "block-insecure": false
-        },
+        }
     },
     "scripts": {
         "test": "vendor/bin/pest",
