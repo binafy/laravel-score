@@ -1,5 +1,13 @@
 # ChangeLog
 
+## v1.1.0 - 2026-04-23
+
+### What's Changed
+
+* [1.x] Laravel 13 by [@milwad-dev](https://github.com/milwad-dev) in https://github.com/binafy/laravel-score/pull/4
+
+**Full Changelog**: https://github.com/binafy/laravel-score/compare/v1.0.0...v1.1.0
+
 ## v1.0.0 - 2025-07-24
 
 **Full Changelog**: https://github.com/binafy/laravel-score/compare/v0.9.5...v1.0.0
