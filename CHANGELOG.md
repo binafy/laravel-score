@@ -1,5 +1,9 @@
 # ChangeLog
 
+## v1.2.0 - 2026-11-11
+
+**Full Changelog**: https://github.com/binafy/laravel-score/compare/v1.1.0...v1.2.0
+
 ## v1.0.0 - 2025-07-24
 
 **Full Changelog**: https://github.com/binafy/laravel-score/compare/v0.9.5...v1.0.0
